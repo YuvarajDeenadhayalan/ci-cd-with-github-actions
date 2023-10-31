@@ -46,7 +46,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-        GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.email "yuvarajdeena@gmail.com"
           git config --global user.name "YuvarajDeenadhayalan"
