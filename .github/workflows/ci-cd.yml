@@ -48,13 +48,17 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
+          # Configure Git user
           git config --global user.email "yuvarajdeena@gmail.com"
           git config --global user.name "YuvarajDeenadhayalan"
+          # Check out or create the gh-pages branch
           git checkout --orphan ci-cd-with-github-actions
+          # Delete existing files (be careful with this)
+          git rm -rf .
           # git --set-upstream-to=origin/master
           git pull origin master
           mv build/* .
           git add .
           git commit -m "Deploy to GitHub Pages"
           git remote add pages https://${GH_PAT}@github.com/YuvarajDeenadhayalan/ci-cd-with-github-actions.git
-          git push pages ci-cd-with-github-actions:ci-cd-with-github-actions
+          git push pages master:master
