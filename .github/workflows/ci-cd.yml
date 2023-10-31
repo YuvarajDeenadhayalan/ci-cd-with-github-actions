@@ -45,6 +45,8 @@ jobs:
           # Add your deployment commands here
 
       - name: Deploy to GitHub Pages
+        env:
+        GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.email "yuvarajdeena@gmail.com"
           git config --global user.name "YuvarajDeenadhayalan"
@@ -54,4 +56,5 @@ jobs:
           mv build/* .
           git add .
           git commit -m "Deploy to GitHub Pages"
-          git push origin ci-cd-with-github-actions
+          git remote add pages https://${GH_PAT}@github.com/YuvarajDeenadhayalan/ci-cd-with-github-actions.git
+          git push pages ci-cd-with-github-actions:ci-cd-with-github-actions
