@@ -49,7 +49,7 @@ jobs:
           git config --global user.email "yuvarajdeena@gmail.com"
           git config --global user.name "YuvarajDeenadhayalan"
           git checkout --orphan ci-cd-with-github-actions
-          git --set-upstream-to=origin/master
+          # git --set-upstream-to=origin/master
           git pull origin master
           mv build/* .
           git add .
